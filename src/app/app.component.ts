@@ -8,15 +8,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'testEnv';
-  
-  constructor(private http: HttpClient){
+  data: Object;
 
+  constructor(private http: HttpClient){
   }
 
-
-
-  testreq(){
-    this.http.get('').subscribe()
+  testReq(){
+    this.http.get('https://rubbermanager.azurewebsites.net/api/worker').subscribe(res => {
+      console.log(res)
+      this.data = res;
+    });
   }
   
 }
